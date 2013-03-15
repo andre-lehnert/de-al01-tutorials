@@ -1,0 +1,3 @@
+default.configuration=RestfulAppEJB
+eclipse.preferences.version=1
+hibernate3.enabled=true
