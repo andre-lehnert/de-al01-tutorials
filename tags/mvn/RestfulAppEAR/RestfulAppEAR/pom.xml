@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>de.al01.tutorial.ear.rest</groupId>
+  <artifactId>RestfulAppEAR</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>ear</packaging>
+  <name>RestfulAppEAR</name>
+  <dependencies>
+    <dependency>
+      <groupId>de.al01.tutorial.ear.rest</groupId>
+      <artifactId>RestfulAppEJB</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>de.al01.tutorial.ear.rest</groupId>
+      <artifactId>RestfulAppWAR</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <type>war</type>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-ear-plugin</artifactId>
+        <version>2.7</version>
+        <configuration>
+          <earSourceDirectory>EarContent</earSourceDirectory>
+          <version>6</version>
+          
+           <modules>
+          <webModule>
+            <groupId>de.al01.tutorial.ear.rest</groupId>
+            <artifactId>RestfulAppWAR</artifactId>
+	<bundleFileName>RestfulAppWAR.war</bundleFileName>
+            <contextRoot>/RestfulApp</contextRoot>
+          </webModule>
+          <ejbModule>
+            <groupId>de.al01.tutorial.ear.rest</groupId>
+            <artifactId>RestfulAppEJB</artifactId>
+			<bundleFileName>RestfulAppEJB.jar</bundleFileName>
+          </ejbModule>
+        </modules>
+        <displayName>RestfulApp</displayName>
+        <!-- If I want maven to generate the application.xml, set this to true -->
+        <generateApplicationXml>true</generateApplicationXml>
+          
+        </configuration>
+        
+  
+        
+      </plugin>
+    </plugins>
+  </build>
+</project>
