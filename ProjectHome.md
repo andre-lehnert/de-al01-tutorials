@@ -1,0 +1,1 @@
+Das Projekt enthält die Sourcecode-Beispiele aus meinen Tutorials auf blog.al01.de
